@@ -1,0 +1,100 @@
+.available_blood{
+    color:#cd1c46;
+    position: relative;
+}
+.blood_img{
+    width:50px;
+}
+
+.blood_group_image_out{
+    position: relative;
+}
+.blood_group_image_inside{
+    border-left:2px solid #cd1c46;
+    border-right:2px solid #cd1c46;
+    border-top:2px solid #cd1c46;
+    border-bottom:5px solid #cd1c46;
+    border-radius:15px;
+}
+.blood_quantity{
+    background-color:#cd1c46;
+    border-radius: 10px;
+}
+.update_number{
+    border:none;
+    border-top:2px solid #5f687c;
+    border-right: 2px solid #5f687c;
+    border-left: 2px solid #5f687c;
+    border-bottom:2px solid #5f687c;
+    border-radius: 10px;
+}
+.update_submit{
+    background-color:#ffd53a;
+    border-radius: 10px;
+}
+
+
+
+/* Rquest___Order */
+
+.heading{
+    background-color:#183153;
+    color:white;
+}
+.text{
+    color:#cd1c46;
+}
+.order{
+    border-right:2px solid #183052;
+}
+
+
+.single_request{
+    background-color:#ffd43b;
+    border-bottom:5px solid #1e3554;
+}
+.single_request .order{
+    white-space: normal;
+}
+.hello{
+    white-space: initial;
+}
+.table_heading{
+    background-color:#1e3554;
+    color:white;
+}
+.table_heading .order{
+    border-right:2px solid #ffd43b;
+}
+.order1 input{
+    background-color:#1e3554;
+    color:white;
+    border-radius: 10px;
+}
+.order1{
+    background-color:#1e3554;
+    color:white;
+    border-radius: 10px;
+}
+.all_blood .px-2{
+    border:1px solid grey;
+    background-color:#E0E0E0;
+    border-bottom:3px solid black;
+}
+.address{
+    display:flex;
+    flex-direction:row-reverse;
+    color:grey;
+    max-width: 100%;
+    height:auto;
+}
+.approved{
+    background-color:#DAF7A6;
+    color:#183052;
+    border-radius:10px;
+}
+.approved input{
+    background-color:#DAF7A6;
+    color:#183052;
+    
+}

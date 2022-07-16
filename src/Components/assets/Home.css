@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Viga&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+
+h1,.h1 {
+	font-weight: 700;
+	font-size: 2.5rem;
+	line-height: 3.25rem;
+	letter-spacing: 0.5px;
+        font-family: 'Viga', sans-serif;
+}
+
+h2,.h2 {
+	font-weight: 700;
+	font-size: 2rem;
+	line-height: 2.5rem;
+	letter-spacing: 0.4px;
+        font-family: 'Viga', sans-serif;
+}
+
+h3,.h3 {
+	font-weight: 700;
+	font-size: 1.75rem;
+	line-height: 2.25rem;
+	letter-spacing: 0.2px;
+        font-family: 'Viga', sans-serif;
+}
+
+h4,.h4 {
+	font-weight: 700;
+	font-size: 1.5rem;
+	line-height: 2rem;
+	letter-spacing: 0.2px;
+        font-family: 'Viga', sans-serif;
+}
+
+h5,.h5 {
+	font-weight: 700;
+	font-size: 1.25rem;
+	line-height: 1.625rem;
+    font-family: 'Viga', sans-serif;
+}
+
+h6,.h6 {
+	font-weight: 700;
+	font-size: 1rem;
+	line-height: 1.375rem;
+        font-family: 'Viga', sans-serif;
+}
+
+.p-large {
+	font-size: 1.125rem;
+	line-height: 1.75rem;
+        font-family: 'Bree Serif', serif;
+}
+
+.p-small {
+	font-size: 0.875rem;
+	line-height: 1.5rem;
+    font-family: 'Bree Serif', serif;
+}
+a{
+    text-decoration: none;
+}
+a:hover , a:focus{
+        text-decoration: none;
+}
+.make_it_pointer:hover{
+	cursor: pointer;
+}
+.left_block{
+	background-color:#63e6be;
+    border-right:10px solid #193053;
+	height: 100%;
+	width: 8%;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	overflow-x: hidden;
+}
+.right_block{
+	margin-left:7%;
+}
+
+
+
+
+
+
+
+
+
+
+

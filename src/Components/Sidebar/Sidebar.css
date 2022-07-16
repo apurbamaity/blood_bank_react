@@ -1,0 +1,19 @@
+
+.selectors{
+	height:60%;
+}
+.single_menu_icon{
+	position:relative;
+	color : #193053;
+	margin-left:20px;
+	margin-right:10px;
+}
+.to_bootom{
+	position:relative;
+	margin-top:2000px;
+}
+.single_menu_icon:hover{
+	border-radius:10px;
+	background-color:#193053;
+	color:#63e6be;
+}
