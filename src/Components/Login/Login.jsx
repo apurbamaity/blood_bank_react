@@ -32,13 +32,15 @@ const Login = () => {
       "username": formdata.email,
       "password": formdata.password,
     }
+
     axios.post(process.env.REACT_APP_SERVER_URL + "/user/login", user)
       .then((response) => {
         console.log(response.data)
+        console.log("hererer")
 
         if (response.data == '') {
           console.log("no no no")
-          toast.error("Some error occured! try again", {
+          toast.error("Password not match", {
             position: "top-right", autoClose: 2000,
           })
         } else {
@@ -47,7 +49,11 @@ const Login = () => {
             pathname: '/',
           });
         }
-      }, (error) => { })
+      }, (error) => {
+        toast.error("Email Not preasent! register", {
+          position: "top-right", autoClose: 2000,
+        })
+      })
   }
 
 

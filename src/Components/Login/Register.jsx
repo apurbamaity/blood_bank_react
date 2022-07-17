@@ -22,6 +22,11 @@ const Register = () => {
         position: "top-right", autoClose: 2000,
       })
       return;
+    }else if(formdata.address===""){
+      toast.error("🚫 address too small", {
+        position: "top-right", autoClose: 2000,
+      })
+      return;
     }
 
     let user = {
