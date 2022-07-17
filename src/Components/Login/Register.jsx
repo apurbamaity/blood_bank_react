@@ -16,10 +16,12 @@ const Register = () => {
       toast.error("🚫 password not match", {
         position: "top-right", autoClose: 2000,
       })
+      return;
     }else if(formdata.password===""){
       toast.error("🚫 password too small", {
         position: "top-right", autoClose: 2000,
       })
+      return;
     }
 
     let user = {

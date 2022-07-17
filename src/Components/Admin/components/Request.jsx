@@ -119,7 +119,6 @@ const Allblood = () => {
 
             {request.map((d) => (
               <Singlerequest d={d} />
-
             ))}
           </div>
         </div>
