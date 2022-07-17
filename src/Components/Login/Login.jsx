@@ -4,7 +4,11 @@ import '../assets/Home.css';
 import Sidebar from '../Sidebar/Sidebar.jsx'
 import './Login.css';
 import axios from 'axios';
-import {isloggedin,getuserrole,setloggedinuser,getloggedinuserdata} from '../Methods/trytoregister.jsx'
+import { isloggedin, getuserrole, setloggedinuser, getloggedinuserdata } from '../Methods/trytoregister.jsx'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 
 const Login = () => {
 
@@ -24,14 +28,20 @@ const Login = () => {
   }
 
   const trytologin = () => {
-    let user ={
-      "username":formdata.email,
-      "password":formdata.password,
+    let user = {
+      "username": formdata.email,
+      "password": formdata.password,
     }
     axios.post(process.env.REACT_APP_SERVER_URL + "/user/login", user)
       .then((response) => {
-        console.log(response.data) 
-        if(response.data!=null){
+        console.log(response.data)
+
+        if (response.data == '') {
+          console.log("no no no")
+          toast.error("Some error occured! try again", {
+            position: "top-right", autoClose: 2000,
+          })
+        } else {
           setloggedinuser(response.data)
           history.push({
             pathname: '/',
@@ -55,6 +65,7 @@ const Login = () => {
   }
   return (
     <>
+      <ToastContainer />
       <div>
         <div class="container-fluid">
           <div class="row login_page_outside">
