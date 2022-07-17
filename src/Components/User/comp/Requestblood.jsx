@@ -4,7 +4,7 @@ import axios from "axios";
 import './Requestblood.css'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {isloggedin,getuserrole,setloggedinuser,getloggedinuserdata} from '../../Methods/trytoregister.jsx'
+import { isloggedin, getuserrole, setloggedinuser, getloggedinuserdata } from '../../Methods/trytoregister.jsx'
 
 
 
@@ -559,10 +559,18 @@ const Requestblood = (props) => {
     axios.post(process.env.REACT_APP_SERVER_URL + "/user/blood/request", booking)
       .then((response) => {
         console.log(response.data)
-        props.setbloodammount()
-        toast.success("🆗 Order Placed 😇", {
-          position: "top-right", autoClose: 2000,
-        })
+        if (response.data == false) {
+          toast.error("quantity Not available but check soon", {
+            position: "top-right", autoClose: 2000,
+          })
+          return;
+        } else {
+          props.setbloodammount()
+          toast.success("🆗 Order Placed 😇", {
+            position: "top-right", autoClose: 2000,
+          })
+          return;
+        }
       }, (error) => { })
   }
 
