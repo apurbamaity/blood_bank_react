@@ -16,20 +16,28 @@ const Register = () => {
       toast.error("🚫 password not match", {
         position: "top-right", autoClose: 2000,
       })
+    }else if(formdata.password===""){
+      toast.error("🚫 password too small", {
+        position: "top-right", autoClose: 2000,
+      })
     }
 
-    let user ={
-      "username":formdata.email,
-      "password":formdata.password,
-      "address":formdata.address,
+    let user = {
+      "username": formdata.email,
+      "password": formdata.password,
+      "address": formdata.address,
     }
     axios.post(process.env.REACT_APP_SERVER_URL + "/user/register", user)
       .then((response) => {
         console.log(response.data)
-        if(response.data==200){
+        if (response.data == 200) {
           history.push({
             pathname: '/login',
           });
+        } else if (response.data == 400) {
+          toast.error("Email already present! try login", {
+            position: "top-right", autoClose: 2000,
+          })
         }
       }, (error) => { })
 
@@ -66,7 +74,7 @@ const Register = () => {
     })
     //console.log(formdata)
   }
-  
+
 
 
   return (
