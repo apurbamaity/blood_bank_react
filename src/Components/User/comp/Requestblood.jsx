@@ -507,14 +507,14 @@ const Choosedbloodtye = (props) => {
 const Requestblood = (props) => {
 
   const map1 = new Map();
-    map1.set(1, { "type": "A+", "price": 1000 });
-    map1.set(2, { "type": "B+", "price": 1050 });
-    map1.set(3, { "type": "AB+", "price": 1300 });
-    map1.set(4, { "type": "O+", "price": 800 });
-    map1.set(5, { "type": "A-", "price": 1200 });
-    map1.set(6, { "type": "B-", "price": 1250 });
-    map1.set(7, { "type": "AB-", "price": 1500 });
-    map1.set(8, { "type": "O-", "price": 1000 });
+  map1.set(1, { "type": "A+", "price": 1000 });
+  map1.set(2, { "type": "B+", "price": 1050 });
+  map1.set(3, { "type": "AB+", "price": 1300 });
+  map1.set(4, { "type": "O+", "price": 800 });
+  map1.set(5, { "type": "A-", "price": 1200 });
+  map1.set(6, { "type": "B-", "price": 1250 });
+  map1.set(7, { "type": "AB-", "price": 1500 });
+  map1.set(8, { "type": "O-", "price": 1000 });
 
   const [bloodtype, setBloodtype] = useState(1)
   const [bloodamm, setBloodamm] = useState(0)
@@ -543,6 +543,13 @@ const Requestblood = (props) => {
 
   //submit a booking..
   const submitorder = () => {
+
+    if (bloodamm === 0) {
+      toast.error("quantity must be more than 0", {
+        position: "top-right", autoClose: 2000,
+      })
+      return;
+    }
 
     console.log(bloodtype)
     // manipuaalte this when real order is placed..
@@ -623,11 +630,11 @@ const Requestblood = (props) => {
               </div>
               <div class="">
                 <div class="d-flex flex-row align-items-center">
-                  
+
                   <div class="h2 px-2 bloodamm_input">
                     {bloodamm * map1.get(bloodtype).price}
                   </div>
-                  
+
                 </div>
               </div>
             </div>
