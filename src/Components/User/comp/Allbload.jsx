@@ -40,8 +40,8 @@ const Allblood = () => {
         <div className="">
 
           <Userdata />
-          <div class="available_blood h2 p-3 my-3 mx-5">
-            Available Blood Per Group As Per Packet
+          <div class="available_blood h2 px-3 mt-2 mx-5">
+            Available Blood Per Group As Per Litre
           </div>
           <div className="row px-5">
 
@@ -56,7 +56,7 @@ const Allblood = () => {
                     {/* blood bank name and address*/}
                     <div class="row d-flex">
                       <div class="col-lg-6">
-                        <div class="blood_group_image h2">
+                        <div class="blood_group_image h3">
                           <img src="blood.png" class="blood_img" />{d.name}
                         </div>
                       </div>
@@ -74,7 +74,7 @@ const Allblood = () => {
                       {/* blood bank available stock*/}
                       <div class="col-xl-6">
                         <div class="h5 py-2 text-danger">
-                          Available quantity
+                          Available quantity in Litre
                         </div>
                         
                         <div class="row">

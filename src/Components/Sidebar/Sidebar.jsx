@@ -45,7 +45,7 @@ const Returntheloginsidebar =(props)=>{
                     {/* -------------------Donate Button In Sidebar-------------------------- */}
                     <div className="single_menu_icon make_it_pointer py-2 mt-3 px-1" onClick={gotorequest} >
                         <div className="p-small">
-                            <i class="fa-solid fa-hand-holding-medical fa-2x "></i> <br/>  Request and order
+                            <i class="fa-solid fa-hand-holding-medical fa-2x "></i> <br/>  Orders
                         </div>
                     </div>
 

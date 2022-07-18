@@ -583,7 +583,7 @@ const Requestblood = (props) => {
         <div class="mt-2 px-3">
 
           <div class="available_blood h2">
-            Request Blood From Blood Bank
+            Order Blood From Blood Bank
           </div>
           <div class="row order_out">
 

@@ -162,7 +162,7 @@ const Allblood = () => {
 
 
             <div class="available_blood h2 p-3 my-3 mx-5">
-              Your All Request
+              Your All Pending Orders.
             </div>
 
 
@@ -213,7 +213,7 @@ const Allblood = () => {
 
 
             <div class="available_blood h2 p-3 my-3 mx-5">
-              All Your Previous Orders
+              All Your approved Orders.
             </div>
 
 
