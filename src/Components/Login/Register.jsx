@@ -17,22 +17,25 @@ const Register = () => {
         position: "top-right", autoClose: 2000,
       })
       return;
-    }else if(formdata.password===""){
+    } else if (formdata.password === "") {
       toast.error("🚫 password too small", {
         position: "top-right", autoClose: 2000,
       })
       return;
-    }else if(formdata.address===""){
+    } else if (formdata.address === "") {
       toast.error("🚫 address too small", {
         position: "top-right", autoClose: 2000,
       })
       return;
     }
+    var parts = formdata.address.match(/.{1,15}/g);
+    var new_address = parts.join(" ");
+
 
     let user = {
       "username": formdata.email,
       "password": formdata.password,
-      "address": formdata.address,
+      "address": new_address,
     }
     axios.post(process.env.REACT_APP_SERVER_URL + "/user/register", user)
       .then((response) => {
