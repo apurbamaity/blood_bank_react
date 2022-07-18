@@ -506,14 +506,27 @@ const Choosedbloodtye = (props) => {
 
 const Requestblood = (props) => {
 
+  const map1 = new Map();
+    map1.set(1, { "type": "A+", "price": 1000 });
+    map1.set(2, { "type": "B+", "price": 1050 });
+    map1.set(3, { "type": "AB+", "price": 1300 });
+    map1.set(4, { "type": "O+", "price": 800 });
+    map1.set(5, { "type": "A-", "price": 1200 });
+    map1.set(6, { "type": "B-", "price": 1250 });
+    map1.set(7, { "type": "AB-", "price": 1500 });
+    map1.set(8, { "type": "O-", "price": 1000 });
+
   const [bloodtype, setBloodtype] = useState(1)
   const [bloodamm, setBloodamm] = useState(0)
+  const [bloodprice, setBloodprice] = useState(0)
 
 
 
   //update blood type here..
   const updateBlood = (id) => {
     setBloodtype(id)
+    setBloodamm(0)
+    setBloodprice(0)
   }
   //increase blood ammount
   const increaseBlood = () => {
@@ -532,18 +545,6 @@ const Requestblood = (props) => {
   const submitorder = () => {
 
     console.log(bloodtype)
-
-    const map1 = new Map();
-    map1.set(1, { "type": "A+", "price": 200 });
-    map1.set(2, { "type": "B+", "price": 200 });
-    map1.set(3, { "type": "AB+", "price": 200 });
-    map1.set(4, { "type": "O+", "price": 200 });
-    map1.set(5, { "type": "A-", "price": 300 });
-    map1.set(6, { "type": "B-", "price": 300 });
-    map1.set(7, { "type": "AB-", "price": 400 });
-    map1.set(8, { "type": "O-", "price": 600 });
-
-
     // manipuaalte this when real order is placed..
     let booking = {
       "type": map1.get(bloodtype).type,
@@ -597,7 +598,7 @@ const Requestblood = (props) => {
             </div>
 
 
-            <div class="col-xl-3 h5 p-2">
+            <div class="col-xl-2 h5 p-2">
               <div class="py-2">
                 Choose Quantity
               </div>
@@ -610,14 +611,28 @@ const Requestblood = (props) => {
                     {bloodamm}
                   </div>
                   <div class="sign px-2 make_it_pointer" onClick={increaseBlood}>
-
                     <i class="fa-solid fa-plus"></i>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="col-xl-3 h5 p-2 d-flex align-items-center make_it_pointer" onClick={submitorder}>
+            <div class="col-xl-2 h5 p-2">
+              <div class="py-2">
+                Order Price
+              </div>
+              <div class="">
+                <div class="d-flex flex-row align-items-center">
+                  
+                  <div class="h2 px-2 bloodamm_input">
+                    {bloodamm * map1.get(bloodtype).price}
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-4 h5 p-2 d-flex align-items-center make_it_pointer" onClick={submitorder}>
               <div class="order_button_out w-50 text-center p-2">
                 <input type="submit" value="order" />
               </div>

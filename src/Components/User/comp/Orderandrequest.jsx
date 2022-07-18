@@ -23,7 +23,6 @@ const Singleorder = (props) => {
           <div class="col-xl-2 col-12 blood_group_image_out1 p-small">
             <div class="order">
               {props.d.useraddress}
-              <div class="hello">711313</div>
             </div>
           </div>
           <div class="col-xl-1 col-12 blood_group_image_out1 p-large">
@@ -54,7 +53,7 @@ const Singleorder = (props) => {
 
 
               <div class="d-flex flex-row bd-highlight p-small">
-                <div class="px-2"><input type="submit" value="approved" /> </div>
+                <div class="px-2">approved</div>
                 <i class="fa-solid fa-circle-check fa-2x"></i>
               </div>
             </div>
@@ -86,7 +85,6 @@ const Singlerequest = (props) => {
           <div class="col-xl-2 col-12 blood_group_image_out1 p-small">
             <div class="order">
               {props.d.useraddress}
-              <div class="hello">711313</div>
             </div>
           </div>
           <div class="col-xl-1 col-12 blood_group_image_out1 p-large">
@@ -116,7 +114,7 @@ const Singlerequest = (props) => {
 
 
               <div class="d-flex flex-row bd-highlight p-small">
-                <div class="px-2"><input type="submit" value="requested" /> </div>
+                <div class="px-2">requested </div>
                 <div class=""><i class="fa-solid fa-truck-arrow-right"></i></div>
               </div>
             </div>

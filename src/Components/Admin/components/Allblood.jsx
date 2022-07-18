@@ -11,6 +11,8 @@ const Allblood = () => {
 
   const [blood, setBlood] = useState([]);
 
+  
+
   useEffect(() => {
     const url = process.env.REACT_APP_SERVER_URL
     axios.get(url + "/bloodbank/all")

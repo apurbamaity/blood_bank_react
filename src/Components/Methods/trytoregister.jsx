@@ -30,10 +30,6 @@ const getloggedinuserdata = () => {
     var CryptoJS = require("crypto-js");
     var userBytes = CryptoJS.AES.decrypt(localStorage.getItem('user'), '12345678');
     var userDec = JSON.parse(userBytes.toString(CryptoJS.enc.Utf8));
-    //console.log(JSON.stringify(userDec));
-    //var user = JSON.parse(userDec);
-    //console.log(userDec)
-    //return user
     return userDec
   } catch (err) {
 
