@@ -17,26 +17,30 @@ import './assets/Home.css'
 const Sendhome = (props) => {
   let history = useHistory()
 
+  if (isloggedin() == null) {
 
-  try {
+    history.push({
+      pathname: '/login',
+    });
+    window.location.reload()
+    return(
+      <></>
+    )
+  } else {
+
     if (getuserrole() === "USER") {
       return (
         <div class="col-xl-11 col-lg-8 right_block">
           <User which={props.which} />
         </div>
       )
-    } else {
+    } else if (getuserrole() === "ADMIN") {
       return (
         <div class="col-xl-11 col-lg-8 right_block">
           <Admin which={props.which} />
         </div>
       )
     }
-  } catch (err) {
-    loggedout()
-    history.push({
-      pathname: './login'
-    })
 
   }
 
@@ -52,18 +56,18 @@ const Home = (props) => {
 
   const checkloggedinandsendhome = () => {
     if (isloggedin() == null) {
-      console.log("not loged in")
+
       history.push({
         pathname: '/login',
       });
+      window.location.reload()
     }
-
   }
 
 
 
   useEffect(() => {
-    checkloggedinandsendhome()
+    //checkloggedinandsendhome()
   }, []);
 
 
@@ -77,11 +81,7 @@ const Home = (props) => {
             <div className="col-xl-1 col-lg-2 col-md-2 left_block">
               <Sidebar />
             </div>
-
-            {/*<Sendhome which={props.which} />*/}
-            
-              <Sendhome which={props.which} />
-
+            <Sendhome which={props.which} />
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const isloggedin = () => {
-  if (localStorage.getItem("user") == null) {
+  if (localStorage.getItem("user") === null) {
     return null;
   } else {
     return localStorage.getItem("user");
