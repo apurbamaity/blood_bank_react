@@ -26,6 +26,7 @@ const Allblood = () => {
     const url = process.env.REACT_APP_SERVER_URL
     axios.get(url + "/bloodbank/all")
       .then((response) => {
+        console.log(response.data)
         setBlood(response.data)
       }, (error) => { })
   }

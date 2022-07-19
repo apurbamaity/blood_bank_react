@@ -34,7 +34,6 @@ const Sendhome = (props) => {
     }
   } catch (err) {
     loggedout()
-    window.location.reload()
     history.push({
       pathname: './login'
     })
