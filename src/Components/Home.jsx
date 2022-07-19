@@ -17,29 +17,36 @@ import './assets/Home.css'
 const Sendhome = (props) => {
   let history = useHistory()
 
-  if (isloggedin() == null) {
-
+  if (isloggedin() === null) {
     history.push({
       pathname: '/login',
     });
-    window.location.reload()
-    return(
+    return (
       <></>
     )
   } else {
 
-    if (getuserrole() === "USER") {
-      return (
-        <div class="col-xl-11 col-lg-8 right_block">
-          <User which={props.which} />
-        </div>
-      )
-    } else if (getuserrole() === "ADMIN") {
-      return (
-        <div class="col-xl-11 col-lg-8 right_block">
-          <Admin which={props.which} />
-        </div>
-      )
+    try {
+      if (getuserrole() === "USER") {
+        return (
+          <div class="col-xl-11 col-lg-8 right_block">
+            <User which={props.which} />
+          </div>
+        )
+      } else if (getuserrole() === "ADMIN") {
+        return (
+          <div class="col-xl-11 col-lg-8 right_block">
+            <Admin which={props.which} />
+          </div>
+        )
+      }
+    } catch (err) {
+      loggedout()
+      history.push({
+        pathname: '/login',
+      });
+      window.location.reload()
+      return;
     }
 
   }

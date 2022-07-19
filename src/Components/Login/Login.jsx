@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 
-const Login = () => {
+const Login = (props) => {
 
   const [formdata, setFormdata] = useState({ email: "", password: "" })
 
@@ -129,9 +129,7 @@ const Login = () => {
                   don't have an account register
                 </div>
 
-                <div class="h6 text-black text-center make_it_pointer" onClick={gotohome}>
-                  <i class="fa-solid fa-house-chimney"></i> return to home
-                </div>
+
 
               </div>
             </div>

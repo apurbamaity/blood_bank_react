@@ -178,9 +178,6 @@ const Register = () => {
                   already have an account login here
                 </div>
 
-                <div class="h6 text-black text-center make_it_pointer" onClick={gotohome}>
-                  <i class="fa-solid fa-house-chimney"></i> return to home
-                </div>
 
 
 
