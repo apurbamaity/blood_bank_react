@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-import './Requestblood.css'
+import './Updateblood.css'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { isloggedin, getuserrole, setloggedinuser, getloggedinuserdata } from '../../Methods/trytoregister.jsx'
+import { isloggedin, getuserrole, setloggedinuser, getloggedinuserdata } from '../../../Methods/trytoregister.jsx'
 
 
 
@@ -504,7 +504,7 @@ const Choosedbloodtye = (props) => {
 }
 
 
-const Requestblood = (props) => {
+const Updatebloodamm = (props) => {
 
   const map1 = new Map();
   map1.set(1, { "type": "A+", "price": 1000 });
@@ -542,7 +542,7 @@ const Requestblood = (props) => {
 
 
   //submit a booking..
-  const submitorder = () => {
+  const updatebloodamn = () => {
 
     if (bloodamm === 0) {
       toast.error("quantity must be more than 0", {
@@ -550,31 +550,44 @@ const Requestblood = (props) => {
       })
       return;
     }
+    
 
-    console.log(bloodtype)
+    let newbloodbank = props.bloodbank;
     // manipuaalte this when real order is placed..
-    let booking = {
-      "type": map1.get(bloodtype).type,
-      "amount": bloodamm,
-      "bloodbank": {
-        "id": 1,
-      },
-      "user": {
-        "id": parseInt(getloggedinuserdata().id),
-      },
+    if(bloodtype==1){
+      newbloodbank.bloodStoreMap.aplus = props.bloodbank.bloodStoreMap.aplus+bloodamm;
+    }else if(bloodtype==2){
+      newbloodbank.bloodStoreMap.bplus = props.bloodbank.bloodStoreMap.bplus+bloodamm;
+    }else if(bloodtype==3){
+      newbloodbank.bloodStoreMap.abplus = props.bloodbank.bloodStoreMap.abplus+bloodamm;
+    }else if(bloodtype==4){
+      newbloodbank.bloodStoreMap.oplus = props.bloodbank.bloodStoreMap.oplus+bloodamm;
+    }else if(bloodtype==5){
+      newbloodbank.bloodStoreMap.aminus = props.bloodbank.bloodStoreMap.aminus+bloodamm;
+    }else if(bloodtype==6){
+      newbloodbank.bloodStoreMap.bminus = props.bloodbank.bloodStoreMap.bminus+bloodamm;
+    }else if(bloodtype==7){
+      newbloodbank.bloodStoreMap.abminus = props.bloodbank.bloodStoreMap.abminus+bloodamm;
+    }else{
+      newbloodbank.bloodStoreMap.ominus = props.bloodbank.bloodStoreMap.ominus+bloodamm;
     }
 
-    axios.post(process.env.REACT_APP_SERVER_URL + "/user/blood/request", booking)
+    console.log(newbloodbank)
+
+    
+
+    axios.post(process.env.REACT_APP_SERVER_URL + "/admin/bloodbank/update", newbloodbank)
       .then((response) => {
         console.log(response.data)
         if (response.data == false) {
           toast.error("quantity Not available but check soon", {
             position: "top-right", autoClose: 2000,
           })
+          
           return;
         } else {
-          props.setbloodammount()
-          toast.success("🆗 Order Placed 😇", {
+          props.bloodammnupdate();
+          toast.success("🆗 Quantity Updated..", {
             position: "top-right", autoClose: 2000,
           })
           return;
@@ -587,15 +600,16 @@ const Requestblood = (props) => {
     <>
       <ToastContainer />
       <div>
-        <div class="mt-2 px-3">
+        <div class="py-3">
 
           <div class="available_blood h2">
-            Order Blood From Blood Bank
+            Update Blood Stock
           </div>
-          <div class="row order_out">
+
+          <div class="row order_out mx-2 py-3">
 
 
-            <div class="col-xl-4 h5 p-2">
+            <div class="col-xl-4 h3">
               <div class="py-2">
                 Choose Bloodtype
               </div>
@@ -605,7 +619,7 @@ const Requestblood = (props) => {
             </div>
 
 
-            <div class="col-xl-2 h5 p-2">
+            <div class="col-xl-2 h5">
               <div class="py-2">
                 Choose Quantity
               </div>
@@ -624,24 +638,11 @@ const Requestblood = (props) => {
               </div>
             </div>
 
-            <div class="col-xl-2 h5 p-2">
-              <div class="py-2">
-                Order Price
-              </div>
-              <div class="">
-                <div class="d-flex flex-row align-items-center">
+            
 
-                  <div class="h2 px-2 bloodamm_input">
-                    {bloodamm * map1.get(bloodtype).price}
-                  </div>
-
-                </div>
-              </div>
-            </div>
-
-            <div class="col-xl-4 h5 p-2 d-flex align-items-center make_it_pointer" onClick={submitorder}>
-              <div class="order_button_out w-50 text-center p-2">
-                <input type="submit" value="order" />
+            <div class="col-xl-4 d-flex align-items-center make_it_pointer" onClick={updatebloodamn}>
+              <div class="h3 p-2 order_button_out">
+                Update Blood Quantity
               </div>
             </div>
 
@@ -654,4 +655,4 @@ const Requestblood = (props) => {
   )
 }
 
-export default Requestblood
+export default Updatebloodamm

@@ -76,7 +76,7 @@ const Allblood = () => {
                         <div class="h5 py-2 text-danger">
                           Available quantity in Litre
                         </div>
-                        
+
                         <div class="row">
 
                           <div class="d-flex flex-row all_blood">

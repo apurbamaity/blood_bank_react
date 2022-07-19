@@ -44,7 +44,7 @@ const Singleorder = (props) => {
 
           <div class="col-xl-2 col-12 blood_group_image_out1 p-large text-left">
             <div class="order">
-              {props.d.orderdate}
+              {props.d.orderdate.substring(0,10)}
             </div>
           </div>
 

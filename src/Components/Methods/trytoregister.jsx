@@ -32,7 +32,7 @@ const getloggedinuserdata = () => {
     var userDec = JSON.parse(userBytes.toString(CryptoJS.enc.Utf8));
     return userDec
   } catch (err) {
-
+    window.location.reload()
   }
 }
 

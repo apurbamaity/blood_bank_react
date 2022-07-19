@@ -58,7 +58,7 @@ const Singlerequest = (props) => {
           </div>
           <div class="col-xl-2 col-12 blood_group_image_out1 p-large text-left">
             <div class="order">
-              {props.d.orderdate}
+              {props.d.orderdate.substring(0,10)}
             </div>
           </div>
 
@@ -106,7 +106,7 @@ const Allblood = () => {
     <>
       <div className="">
         <div className="">
-          {/*<Userdata />*/}
+          <Userdata />
           <div class="available_blood h2 p-3 my-3 mx-5">
             All the request
           </div>

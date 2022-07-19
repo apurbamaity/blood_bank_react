@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Sidebar from './Sidebar/Sidebar.jsx'
 import Admin from './Admin/Admin.jsx'
 import User from './User/User.jsx'
-import { isloggedin, getuserrole,loggedout } from './Methods/trytoregister.jsx'
+import { isloggedin, getuserrole, loggedout } from './Methods/trytoregister.jsx'
 
 
 import './assets/Home.css'
@@ -35,12 +35,12 @@ const Sendhome = (props) => {
   } catch (err) {
     loggedout()
     window.location.reload()
-    history.push({ 
-      pathname : './login'
+    history.push({
+      pathname: './login'
     })
 
   }
-  
+
   // if user is not looged in send to login page..
 
 
@@ -79,7 +79,9 @@ const Home = (props) => {
               <Sidebar />
             </div>
 
-            <Sendhome which={props.which} />
+            {/*<Sendhome which={props.which} />*/}
+            
+              <Sendhome which={props.which} />
 
           </div>
         </div>

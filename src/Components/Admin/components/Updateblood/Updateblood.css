@@ -1,0 +1,27 @@
+.order_out{
+    border-left:2px solid #cd1c46;
+    border-right:2px solid #cd1c46;
+    border-top:2px solid #cd1c46;
+    border-bottom:5px solid #cd1c46;
+    border-radius:15px;
+}
+.highlight_this{
+    background-color:#cd1c46;
+    color:white;
+}
+.sign{
+    background-color:#ffd43b;
+    color:#1e3554;
+    border-bottom:5px solid #1e3554;
+}
+
+.order_button_out{
+    background-color:#ffd43b;
+    color:#1e3554;
+    border:2px solid #1e3554;
+    border-radius: 10px;
+}
+
+.bloodamm_input{
+    width:80px;
+}

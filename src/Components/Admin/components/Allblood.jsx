@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import '../Admin.css'
 import Userdata from '../../Userdata.jsx'
+import Updatebloodamm from './Updateblood/Updatebloodamm.jsx'
 
 
 
@@ -11,15 +12,19 @@ const Allblood = () => {
 
   const [blood, setBlood] = useState([]);
 
-  
-
-  useEffect(() => {
+  const bloodammnupdate = () => {
     const url = process.env.REACT_APP_SERVER_URL
     axios.get(url + "/bloodbank/all")
       .then((response) => {
         setBlood(response.data)
         console.log(response.data)
       }, (error) => { })
+  }
+
+
+
+  useEffect(() => {
+    bloodammnupdate()
   }, []);
 
   return (
@@ -27,14 +32,12 @@ const Allblood = () => {
       <div className="">
         <div className="admin_head_allbload">
 
-          {/*<Userdata />*/}
-          
-          <div class="available_blood h2 p-3 my-3 mx-5">
+          <Userdata />
+
+          <div class="available_blood h2 my-3 mx-5">
             Available Blood Per Group As Per Packet
           </div>
           <div className="row px-5">
-
-
             {blood.map((d) => (
               /*<Sing name={d.name} link={d.imglink} />*/
               <>
@@ -43,8 +46,8 @@ const Allblood = () => {
                   <div class="blood_group_image_inside p-3">
                     <div class="row d-flex">
                       <div class="col-lg-6 mb-3">
-                        <div class="blood_group_image p-large">
-                          {d.name}
+                        <div class="blood_group_image h3">
+                          <img src="blood.png" class="blood_img" />{d.name}
                         </div>
                       </div>
                       <div class="col-lg-6 mb-3 address">
@@ -56,6 +59,10 @@ const Allblood = () => {
                     </div>
 
                     <div class="row">
+
+                      <div class="h3 py-2 text-danger">
+                        Available quantity in Litre
+                      </div>
 
                       <div class="d-flex flex-row all_blood">
 
@@ -139,10 +146,17 @@ const Allblood = () => {
                   </div>
                 </div>
 
+                <Updatebloodamm bloodbank={d} bloodammnupdate={bloodammnupdate} />
+
 
               </>
             ))}
           </div>
+
+
+
+
+
         </div>
       </div>
     </>
